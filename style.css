@@ -1012,3 +1012,144 @@ body {
         border-radius: 14px;
     }
 }
+
+/* ===== Travel Diary visual polish (keeps existing add/edit/delete behavior) ===== */
+:root {
+  --paper: #f7f5ef;
+  --card: #fffefa;
+  --ink: #403d36;
+  --muted: #928b7e;
+  --line: #e9e4d9;
+  --sage: #7d8b73;
+  --sage-dark: #66765e;
+  --sage-pale: #edf0e7;
+  --rose-pale: #f7efea;
+}
+
+html { background: var(--paper); }
+body {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+button, input, select, textarea { font: inherit; }
+button { transition: background .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease; }
+
+.top-bar {
+  background: rgba(255,254,250,.92) !important;
+  border-bottom: 1px solid var(--line) !important;
+  padding: 24px max(24px, calc((100% - 1120px) / 2)) !important;
+}
+.top-bar a, .brand, .brand:visited {
+  color: var(--ink) !important;
+  text-decoration: none !important;
+}
+.top-bar a:hover, .brand:hover { color: var(--sage-dark) !important; text-decoration: none !important; }
+.top-note { color: var(--muted) !important; font: italic 14px Georgia, serif; }
+
+.container { max-width: 1120px !important; padding: 52px 28px !important; }
+.section-title { margin-bottom: 24px !important; }
+.section-title h2 { color: var(--ink); font-size: 28px !important; font-weight: 650; letter-spacing: -.04em; }
+
+.new-trip-btn, .add-schedule-button, .save-trip-button {
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: var(--sage) !important;
+  color: #fff !important;
+  padding: 12px 21px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 5px 14px rgba(91,107,81,.10);
+}
+.new-trip-btn:hover, .add-schedule-button:hover, .save-trip-button:hover {
+  background: var(--sage-dark) !important;
+  transform: translateY(-1px);
+}
+
+.trip-card, .trip-detail-header, .schedule-card, .empty-state, .empty-day {
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 32px rgba(72,64,48,.035) !important;
+}
+.trip-card { padding: 28px !important; gap: 24px !important; }
+.trip-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(72,64,48,.075) !important; }
+.trip-icon { background: var(--sage-pale) !important; border-radius: 18px !important; color: var(--sage-dark); }
+.trip-info h3 { color: var(--ink); font-size: 23px !important; font-weight: 650; }
+.trip-info p { color: var(--muted) !important; }
+.trip-info span { color: var(--sage-dark) !important; }
+
+.trip-detail { max-width: 1120px !important; margin: 0 auto; }
+.back-button { color: var(--sage-dark) !important; font-weight: 600; margin-bottom: 28px !important; }
+.trip-detail-header { padding: 34px 38px !important; margin-bottom: 28px !important; }
+.trip-country { color: var(--sage-dark) !important; font-size: 14px !important; letter-spacing: .04em; }
+.trip-detail-header h2 { color: var(--ink); font-size: clamp(30px, 4vw, 42px) !important; font-weight: 650; letter-spacing: -.055em; margin: 8px 0 12px !important; }
+.trip-detail-header p { color: var(--muted) !important; font-size: 16px; }
+
+.day-tabs { gap: 9px !important; margin-bottom: 30px !important; padding-bottom: 3px; }
+.day-tab { border: 1px solid var(--line) !important; border-radius: 999px !important; background: var(--card) !important; color: var(--ink) !important; padding: 11px 22px !important; font-size: 13px !important; font-weight: 650 !important; }
+.day-tab:hover { background: var(--sage-pale) !important; }
+.day-tab.active { background: var(--sage) !important; color: white !important; border-color: var(--sage) !important; }
+.day-header { margin-bottom: 22px !important; }
+.day-header h3 { color: var(--ink); font: 600 30px/1.2 Georgia, "Malgun Gothic", serif !important; letter-spacing: -.02em; }
+.day-header p { color: var(--muted) !important; }
+
+.timeline-item { grid-template-columns: 76px 26px minmax(0,1fr) !important; gap: 10px !important; margin-bottom: 18px !important; }
+.timeline-time { color: var(--ink) !important; font-size: 15px !important; font-weight: 650 !important; }
+.timeline-line::before { background: #dfe5d9 !important; width: 1px !important; }
+.timeline-dot { background: var(--sage) !important; border: 3px solid #e9eee3 !important; }
+.schedule-card { padding: 22px 25px !important; }
+.schedule-top { align-items: center; gap: 12px; }
+.schedule-type { color: var(--sage-dark) !important; font-size: 13px !important; font-weight: 650 !important; }
+.schedule-card h3 { color: var(--ink); font-size: 21px !important; font-weight: 650; line-height: 1.4; }
+.transport-info { border-top: 1px solid #eeeae2 !important; color: var(--muted) !important; }
+.transport-info strong { color: var(--ink) !important; }
+.schedule-memo { color: #777165 !important; line-height: 1.75 !important; }
+
+.edit-schedule-button, .delete-schedule {
+  border: 1px solid var(--line) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: var(--muted) !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  cursor: pointer;
+}
+.edit-schedule-button:hover { background: var(--sage-pale) !important; color: var(--sage-dark) !important; border-color: #d8dfd0 !important; }
+.delete-schedule:hover { background: var(--rose-pale) !important; color: #a56f62 !important; border-color: #ead8d0 !important; }
+
+.modal-overlay { background: rgba(50,47,40,.38) !important; backdrop-filter: blur(4px); }
+.modal { background: var(--card) !important; border: 1px solid var(--line); border-radius: 22px !important; box-shadow: 0 24px 70px rgba(47,43,35,.18) !important; }
+.modal-header h2 { color: var(--ink); }
+.close-modal { color: var(--muted) !important; }
+.form-group label { color: #716b60 !important; font-weight: 600; }
+.form-group input, .modal select, .modal textarea {
+  border: 1px solid var(--line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  color: var(--ink) !important;
+  padding: 12px 14px !important;
+}
+.form-group input:focus, .modal select:focus, .modal textarea:focus { border-color: #aab69f !important; box-shadow: 0 0 0 3px rgba(125,139,115,.12) !important; }
+.cancel-button { border: 1px solid var(--line) !important; border-radius: 999px !important; background: transparent !important; color: var(--muted) !important; }
+.cancel-button:hover { background: #f4f1ea !important; }
+.empty-state, .empty-day { color: var(--ink); padding: 48px 22px !important; }
+.empty-state p, .empty-day p { color: var(--muted) !important; }
+.site-footer { width: 100%; text-align: center; padding: 28px 16px; color: #a59d90; border-top: 1px solid var(--line); font: italic 13px Georgia, serif; }
+.site-footer span { color: var(--sage); }
+
+@media (max-width: 640px) {
+  .top-bar { padding: 18px 20px !important; }
+  .container { padding: 32px 18px !important; }
+  .trip-detail-header { padding: 25px 22px !important; }
+  .trip-card { padding: 20px !important; gap: 16px !important; }
+  .trip-icon { width: 64px !important; height: 64px !important; font-size: 36px !important; }
+  .timeline-item { grid-template-columns: 52px 18px minmax(0,1fr) !important; gap: 6px !important; }
+  .timeline-time { font-size: 13px !important; }
+  .schedule-card { padding: 17px !important; }
+  .schedule-card h3 { font-size: 18px !important; }
+  .day-header { align-items: flex-start !important; gap: 12px; }
+  .add-schedule-button { padding: 10px 14px !important; white-space: nowrap; }
+}
