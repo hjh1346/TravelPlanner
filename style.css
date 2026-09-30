@@ -1012,6 +1012,3 @@ body {
         border-radius: 14px;
     }
 }
-
-/* 읽기 전용 화면: 작성/수정/삭제 조작 요소 숨김 */
-.new-trip-btn, .add-schedule-button, .edit-schedule-button, .delete-schedule { display: none !important; }

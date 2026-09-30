@@ -121,6 +121,9 @@ function renderTripList() {
 
                 <h2>내 여행</h2>
 
+                <button class="new-trip-btn">
+                    + 새 여행
+                </button>
 
             </div>
 
@@ -143,7 +146,7 @@ function renderTripList() {
                 <h3>아직 여행이 없어요</h3>
 
                 <p>
-                    여행 일정이 준비되면 여기에 표시됩니다.
+                    새로운 여행을 만들어보세요.
                 </p>
             </div>
         `;
@@ -202,6 +205,14 @@ function renderTripList() {
 
     }
 
+
+    // 새 여행 버튼
+    document
+        .querySelector(".new-trip-btn")
+        .addEventListener(
+            "click",
+            openTripModal
+        );
 }
 
 
@@ -647,26 +658,117 @@ function renderDayContent(
 
 
     content.innerHTML = `
+
         <div class="day-header">
+
             <div>
-                <h3>DAY ${dayNumber}</h3>
-                <p>${getDayDate(trip.startDate, dayNumber)}</p>
+
+                <h3>
+                    DAY ${dayNumber}
+                </h3>
+
+                <p>
+                    ${getDayDate(
+                        trip.startDate,
+                        dayNumber
+                    )}
+                </p>
+
             </div>
+
+
+            <button
+                class="add-schedule-button"
+                id="add-schedule"
+            >
+                + 일정 추가
+            </button>
+
         </div>
 
+
         <div class="timeline">
-            ${day.items.length === 0
-                ? `
+
+            ${
+                day.items.length === 0
+
+                ?
+
+                `
                     <div class="empty-day">
-                        <div>🗓️</div>
-                        <h3>아직 등록된 일정이 없어요</h3>
-                        <p>여행 일정이 준비되면 이곳에서 확인할 수 있어요.</p>
+
+                        <div>
+                            🗓️
+                        </div>
+
+                        <h3>
+                            아직 일정이 없어요
+                        </h3>
+
+                        <p>
+                            아래 버튼을 눌러 첫 일정을 추가해보세요.
+                        </p>
+
+                        <button
+                            class="add-schedule-button"
+                            id="add-schedule-empty"
+                        >
+                            + 첫 일정 추가
+                        </button>
+
                     </div>
                 `
-                : day.items.map(renderScheduleItem).join("")
+
+                :
+
+                day.items.map(
+                    renderScheduleItem
+                ).join("")
+
             }
+
         </div>
+
     `;
+
+
+    // 일정 추가 버튼
+    document
+        .querySelector("#add-schedule")
+        .addEventListener(
+            "click",
+            function () {
+
+                openScheduleModal(
+                    trip,
+                    day
+                );
+
+            }
+        );
+
+
+    const emptyButton =
+        document.querySelector(
+            "#add-schedule-empty"
+        );
+
+
+    if (emptyButton) {
+
+        emptyButton.addEventListener(
+            "click",
+            function () {
+
+                openScheduleModal(
+                    trip,
+                    day
+                );
+
+            }
+        );
+
+    }
 }
 
 
@@ -728,7 +830,19 @@ function renderScheduleItem(
                         ${escapeHtml(item.type)}
                     </span>
 
-
+                    <button
+    type="button"
+    class="edit-schedule-button"
+    onclick="editSchedule(${index})"
+>
+    ✏️ 수정
+</button>
+<button
+                        class="delete-schedule"
+                        onclick="deleteSchedule(${index})"
+                    >
+                        삭제
+                    </button>
 
                 </div>
 
