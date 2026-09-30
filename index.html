@@ -1,58 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Travel Planner</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Travel Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <header class="top-bar">
-        <div>
-            <h1>✈️ Travel Planner</h1>
-            <p>나만의 여행 일정을 만들어보세요</p>
-        </div>
-    </header>
-
-    <main class="container">
-
-        <section class="trip-section">
-
-            <div class="section-title">
-                <h2>내 여행</h2>
-
-                <button class="new-trip-btn">
-                    + 새 여행
-                </button>
-            </div>
-
-            <div class="trip-card">
-
-                <div class="trip-icon">
-                    🇯🇵
-                </div>
-
-                <div class="trip-info">
-                    <h3>도쿄 3박 4일</h3>
-
-                    <p>
-                        2026.10.10 ~ 2026.10.13
-                    </p>
-
-                    <span>
-                        일정 0개
-                    </span>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-<script src="app.js"></script>
+  <header class="top-bar">
+    <a class="brand" href="#" aria-label="Travel Diary 홈" onclick="renderTripList(); return false;">
+      <span class="brand-mark">✳</span>
+      <span><strong>little journeys</strong><small>TRAVEL DIARY</small></span>
+    </a>
+    <div class="top-note">collecting moments, one trip at a time</div>
+  </header>
+  <main class="container"></main>
+  <footer class="site-footer">made for the places we remember <span>✿</span></footer>
+  <script src="app.js"></script>
 </body>
 </html>
