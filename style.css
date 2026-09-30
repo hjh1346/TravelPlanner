@@ -1,0 +1,712 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+.top-bar {
+    background: white;
+    padding: 28px 40px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.top-bar h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+}
+
+.top-bar p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.new-trip-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.new-trip-btn:hover {
+    background: #1d4ed8;
+}
+
+.trip-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.trip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.trip-icon {
+    font-size: 48px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 12px;
+}
+
+.trip-info h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.trip-info p {
+    margin: 0 0 8px;
+    color: #6b7280;
+}
+
+.trip-info span {
+    font-size: 13px;
+    color: #2563eb;
+}
+
+/* ========================================
+   새 여행 만들기 모달
+======================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.modal {
+    width: 90%;
+    max-width: 520px;
+
+    background: white;
+    border-radius: 16px;
+
+    padding: 28px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.close-modal {
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #222;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+.modal-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 26px;
+}
+
+.cancel-button {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #374151;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background: #f3f4f6;
+}
+
+.save-trip-button {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.save-trip-button:hover {
+    background: #1d4ed8;
+}
+
+/* ========================================
+   여행 상세 화면
+======================================== */
+
+.trip-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.back-button {
+    border: none;
+    background: transparent;
+
+    color: #2563eb;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.trip-detail-header {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 28px;
+
+    margin-bottom: 24px;
+}
+
+.trip-country {
+    color: #6b7280;
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+}
+
+.trip-detail-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+}
+
+.trip-detail-header p {
+    margin: 0;
+
+    color: #6b7280;
+}
+
+
+/* ========================================
+   DAY 탭
+======================================== */
+
+.day-tabs {
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    margin-bottom: 24px;
+}
+
+.day-tab {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #374151;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.day-tab:hover {
+    background: #f3f4f6;
+}
+
+.day-tab.active {
+    background: #2563eb;
+
+    color: white;
+
+    border-color: #2563eb;
+}
+
+
+/* ========================================
+   DAY 헤더
+======================================== */
+
+.day-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.day-header h3 {
+    margin: 0 0 5px;
+
+    font-size: 24px;
+}
+
+.day-header p {
+    margin: 0;
+
+    color: #6b7280;
+}
+
+.add-schedule-button {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.add-schedule-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ========================================
+   빈 DAY
+======================================== */
+
+.empty-day {
+    background: white;
+
+    border: 1px dashed #d1d5db;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.empty-day > div {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.empty-day h3 {
+    margin: 0 0 8px;
+}
+
+.empty-day p {
+    color: #6b7280;
+
+    margin: 0 0 20px;
+}
+
+
+/* ========================================
+   일정 타임라인
+======================================== */
+
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 70px 30px 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+}
+
+.timeline-time {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #374151;
+
+    padding-top: 18px;
+
+    text-align: right;
+}
+
+.timeline-line {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.timeline-line::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: -22px;
+
+    width: 2px;
+
+    background: #dbe3f0;
+}
+
+.timeline-item:last-child
+.timeline-line::before {
+    display: none;
+}
+
+.timeline-dot {
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    border: 3px solid #dbeafe;
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 20px;
+}
+
+
+/* ========================================
+   일정 카드
+======================================== */
+
+.schedule-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 13px;
+
+    padding: 18px 20px;
+}
+
+.schedule-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.schedule-type {
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.delete-schedule {
+    border: none;
+
+    background: transparent;
+
+    color: #9ca3af;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.delete-schedule:hover {
+    color: #dc2626;
+}
+
+.schedule-card h3 {
+    margin: 0;
+
+    font-size: 19px;
+}
+
+.transport-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #f0f0f0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.transport-info strong {
+    color: #374151;
+}
+
+.schedule-memo {
+    margin: 12px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   일정 추가 모달
+======================================== */
+
+.modal select,
+.modal textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    background: white;
+
+    outline: none;
+}
+
+.modal select:focus,
+.modal textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.12);
+}
+
+.modal textarea {
+    min-height: 90px;
+
+    resize: vertical;
+
+    font-family: inherit;
+}
+
+
+/* ========================================
+   빈 여행 목록
+======================================== */
+
+.empty-state {
+    background: white;
+
+    border: 1px dashed #d1d5db;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.empty-icon {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px;
+}
+
+.empty-state p {
+    color: #6b7280;
+
+    margin: 0;
+}
+
+
+/* ========================================
+   모바일 화면
+======================================== */
+
+@media (max-width: 700px) {
+
+    .top-bar {
+        padding: 22px 20px;
+    }
+
+    .container {
+        padding: 25px 16px;
+    }
+
+    .trip-card {
+        padding: 18px;
+    }
+
+    .trip-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 36px;
+    }
+
+    .day-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .timeline-item {
+        grid-template-columns:
+            55px 20px 1fr;
+
+        gap: 6px;
+    }
+
+    .timeline-time {
+        font-size: 13px;
+    }
+
+    .schedule-card {
+        padding: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
