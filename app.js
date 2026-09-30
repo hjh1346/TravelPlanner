@@ -14,6 +14,31 @@ let trips = JSON.parse(
 
 let selectedTripId = null;
 
+// 브라우저에 저장된 일정이 없으면 GitHub의 trips.json 불러오기
+async function initializeTrips() {
+    if (localStorage.getItem("travelPlannerTrips") === null) {
+        try {
+            const response = await fetch("./trips.json");
+
+            if (!response.ok) {
+                throw new Error("여행 데이터를 불러오지 못했어요.");
+            }
+
+            const publishedTrips = await response.json();
+
+            trips = Array.isArray(publishedTrips)
+                ? publishedTrips
+                : [];
+
+        } catch (error) {
+            console.error(error);
+            trips = [];
+        }
+    }
+
+    renderTripList();
+}
+
 
 // ----------------------------------------
 // 기본 요소
@@ -33,6 +58,32 @@ function saveTrips() {
     );
 }
 
+// 여행 일정 JSON 파일로 내보내기
+function exportTrips() {
+    const json = JSON.stringify(trips, null, 2);
+
+    const blob = new Blob(
+        [json],
+        { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "trips.json";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+    }, 1000);
+
+    alert("여행 데이터가 다운로드됐어요!");
+}
 
 // ----------------------------------------
 // 날짜 표시
@@ -125,6 +176,10 @@ function renderTripList() {
                     + 새 여행
                 </button>
 
+                <button class="export-trips-btn">
+                    ↓ 여행 데이터 내보내기
+                </button>
+
             </div>
 
             <div id="trip-list"></div>
@@ -213,6 +268,10 @@ function renderTripList() {
             "click",
             openTripModal
         );
+
+    document
+    .querySelector(".export-trips-btn")
+    .addEventListener("click", exportTrips);
 }
 
 
@@ -1599,5 +1658,5 @@ function deleteSchedule(index) {
 // 시작
 // ========================================
 
-renderTripList();
+initializeTrips();
 
