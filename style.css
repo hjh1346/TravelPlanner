@@ -1175,3 +1175,27 @@ button { transition: background .18s ease, color .18s ease, transform .18s ease,
     border-radius: 16px;
     margin-bottom: 20px;
 }
+
+/* 일정별 사진 */
+.schedule-photos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.schedule-photos img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* 모바일 화면 */
+@media (max-width: 480px) {
+    .schedule-photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+}

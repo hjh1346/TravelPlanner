@@ -969,6 +969,27 @@ function renderScheduleItem(
                     ""
                 }
 
+                ${
+                    item.photos && item.photos.length > 0
+                    ?
+
+                    `
+                        <div class="schedule-photos">
+                            ${item.photos.map(photo => `
+                                <img
+                                    src="${escapeHtml(photo)}"
+                                    alt="일정 사진"
+                                    loading="lazy"
+                                >
+                            `).join("")}
+                        </div>
+                    `
+
+                    :
+
+                    ""
+                }
+
             </div>
 
         </div>
@@ -1141,6 +1162,23 @@ function openScheduleModal(
 
             </div>
 
+            <div class="form-group">
+
+                <label>
+                    일정 사진
+                </label>
+
+                <textarea
+                    id="schedule-photos"
+                    placeholder="사진 경로를 한 줄에 하나씩 입력하세요.&#10;예: images/asakusa.png"
+                    rows="3"
+                ></textarea>
+
+                <small>
+                    사진은 나중에 추가해도 됩니다.
+                </small>
+
+            </div>
 
             <div class="modal-buttons">
 
@@ -1260,7 +1298,10 @@ function openScheduleModal(
                     "기타": "⭐"
 
                 };
-
+                const photos = document.getElementById("schedule-photos").value
+                    .split("\n")
+                    .map(path => path.trim())
+                    .filter(path => path.length > 0);                
 
                 day.items.push({
 
@@ -1276,7 +1317,9 @@ function openScheduleModal(
 
                     duration: duration || 0,
 
-                    memo: memo
+                    memo: memo,
+
+                    photos: photos
 
                 });
 
@@ -1447,6 +1490,21 @@ function editSchedule(index) {
 
             </div>
 
+            <div class="form-group">
+
+                <label>일정 사진</label>
+
+                <textarea
+                    id="edit-schedule-photos"
+                    placeholder="사진 경로를 한 줄에 하나씩 입력하세요.&#10;예: images/asakusa.png"
+                    rows="3"
+                >${(item.photos || []).map(photo => escapeHtml(photo)).join("\n")}</textarea>
+
+                <small>
+                    사진 경로를 수정하거나 추가할 수 있습니다.
+                </small>
+
+            </div>
 
             <div class="modal-buttons">
 
@@ -1515,6 +1573,11 @@ function editSchedule(index) {
             const memo =
                 document.querySelector("#edit-schedule-memo").value.trim();
 
+            const photos = document.querySelector("#edit-schedule-photos").value
+                .split("\n")
+                .map(path => path.trim())
+                .filter(path => path.length > 0);
+
 
             if (!time) {
 
@@ -1563,7 +1626,9 @@ function editSchedule(index) {
 
                 duration: duration || 0,
 
-                memo: memo
+                memo: memo,
+
+                photos: photos
 
             };
 
