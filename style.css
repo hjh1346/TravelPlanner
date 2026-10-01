@@ -1153,3 +1153,7 @@ button { transition: background .18s ease, color .18s ease, transform .18s ease,
   .day-header { align-items: flex-start !important; gap: 12px; }
   .add-schedule-button { padding: 10px 14px !important; white-space: nowrap; }
 }
+
+.schedule-memo {
+    white-space: pre-wrap;
+}
