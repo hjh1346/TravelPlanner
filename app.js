@@ -1066,9 +1066,10 @@ function openScheduleModal(
 
                     <option value="공항">✈️ 공항</option>
 
+                    <option value="이동">🚃 이동</option>
+
                     <option value="기타">⭐ 기타</option>
 
-                    <option value="이동">🚃 이동</option>
 
                 </select>
 
@@ -1297,6 +1298,8 @@ function openScheduleModal(
 
                     "공항": "✈️",
 
+                    "이동": "🚃",
+
                     "기타": "⭐"
 
                 };
@@ -1423,6 +1426,7 @@ function editSchedule(index) {
                     <option value="숙소">🏨 숙소</option>
                     <option value="쇼핑">🛍️ 쇼핑</option>
                     <option value="공항">✈️ 공항</option>
+                    <option value="이동">🚃 이동</option>
                     <option value="기타">⭐ 기타</option>
 
                 </select>
@@ -1607,6 +1611,7 @@ function editSchedule(index) {
                 "숙소": "🏨",
                 "쇼핑": "🛍️",
                 "공항": "✈️",
+                "이동": "🚃",
                 "기타": "⭐"
 
             };
