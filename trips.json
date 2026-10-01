@@ -5,6 +5,7 @@
     "country": "일본",
     "startDate": "2026-10-03",
     "endDate": "2026-10-06",
+    "coverImage": "./images/tokyo.png",
     "days": [
       {
         "day": 1,
