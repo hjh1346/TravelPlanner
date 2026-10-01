@@ -1068,6 +1068,8 @@ function openScheduleModal(
 
                     <option value="기타">⭐ 기타</option>
 
+                    <option value="이동">🚃 이동</option>
+
                 </select>
 
             </div>
