@@ -343,6 +343,15 @@ function openTripModal() {
 
             </div>
 
+            <div class="form-group">
+                <label>대표 사진 경로</label>
+
+                <input
+                    type="text"
+                    id="trip-cover-image"
+                    placeholder="./images/tokyo.png"
+                >
+            </div>
 
             <div class="form-row">
 
@@ -462,20 +471,17 @@ function openTripModal() {
 
 
                 // 여행 생성
+                const coverImage =
+                    document.querySelector("#trip-cover-image").value.trim();
+
                 const newTrip = {
-
                     id: Date.now(),
-
                     name: name,
-
                     country: country,
-
                     startDate: start,
-
                     endDate: end,
-
+                    coverImage: coverImage,
                     days: []
-
                 };
 
 
@@ -588,6 +594,15 @@ if (!trip.days || trip.days.length !== dayCount) {
 
 
             <div class="trip-detail-header">
+
+                ${trip.coverImage ? `
+                    <img
+                        src="${escapeHtml(trip.coverImage)}"
+                        class="trip-cover-image"
+                        alt="여행 대표 사진"
+                    >
+                ` : ""}
+
 
                 <div>
 
