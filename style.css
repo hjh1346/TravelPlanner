@@ -1157,3 +1157,13 @@ button { transition: background .18s ease, color .18s ease, transform .18s ease,
 .schedule-memo {
     white-space: pre-wrap;
 }
+
+.schedule-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-schedule-button {
+    margin-left: auto;
+}
