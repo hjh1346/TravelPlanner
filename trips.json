@@ -160,11 +160,169 @@
       },
       {
         "day": 3,
-        "items": []
+        "items": [
+          {
+            "time": "09:00",
+            "type": "이동",
+            "icon": "🚃",
+            "title": "이케부쿠로 -> 메이지 신궁",
+            "transport": "전철",
+            "duration": "0",
+            "memo": ".\n이케부쿠로역 -> 메이지진구마에(하라주쿠)역\n후쿠토시선 탑승\n지하철 (약 15~20분) + 도보\n\n※ 신궁은 숲길이 길어서 편한 신발 추천!!",
+            "photos": []
+          },
+          {
+            "time": "10:00",
+            "type": "관광",
+            "icon": "📍",
+            "title": "메이지 신궁",
+            "transport": "",
+            "duration": "0",
+            "memo": ".\n메이지 신궁 관광\n - 도리이와 숲길 산책\n - 사진 촬영 및 여유롭게 구경할 수 있음!",
+            "photos": [
+              "images/singung1.png",
+              "images/singung2.png",
+              "images/singung3.png"
+            ]
+          },
+          {
+            "time": "11:30",
+            "type": "식사",
+            "icon": "🍜",
+            "title": "다케시타도리",
+            "transport": "",
+            "duration": "0",
+            "memo": ".\n메이지 신궁에서 하라주쿠역 방향으로 걸어가기\n - 일본 특유의 아기자기한 상점 구경\n - 크레페, 디저트 간식\n - 기념품 쇼핑\n\n이 주위에서 밥도 먹기",
+            "photos": [
+              "images/dori1.png",
+              "images/dori2.png",
+              "images/dori3.png"
+            ]
+          },
+          {
+            "time": "13:00",
+            "type": "관광",
+            "icon": "📍",
+            "title": "캣스트리트",
+            "transport": "도보",
+            "duration": "15",
+            "memo": ".\n다케시타도리에서 도보 약 10~15분 소요\n - 감성적인 편집숍\n - 카페와 의류 매장\n - 거리 사진 촬영",
+            "photos": [
+              "images/cat1.png",
+              "images/cat2.png",
+              "images/cat3.png"
+            ]
+          },
+          {
+            "time": "14:30",
+            "type": "관광",
+            "icon": "📍",
+            "title": "오모테산도",
+            "transport": "도보",
+            "duration": "0",
+            "memo": ".\n캣스트리트에서 도보 이동\n - 오모테산도 거리 구경\n - 쇼핑 및 카페 휴식 (계속 걸으면 힘들니 잠깐 쉬어가는 것도 나쁘지않음!)\n - 건물과 거리 사진 촬영",
+            "photos": [
+              "images/sando1.png",
+              "images/sando2.png",
+              "images/sando3.png"
+            ]
+          },
+          {
+            "time": "16:00",
+            "type": "관광",
+            "icon": "📍",
+            "title": "오모테산도 -> 롯폰기 힐스",
+            "transport": "전철",
+            "duration": "20",
+            "memo": ".\n1단계 : 오모테산도역 -> 아오야마잇초메역\n          ( 긴자선 )\n2단계 : 아오야마잇초메역 -> 롯폰기역\n          ( 도에이 오에도선 )",
+            "photos": []
+          },
+          {
+            "time": "16:20",
+            "type": "관광",
+            "icon": "📍",
+            "title": "롯폰기 힐스",
+            "transport": "도보",
+            "duration": 0,
+            "memo": "40분정도만 주변 구경하고 다음 전망대를 위해서 체력 비축!!",
+            "photos": [
+              "images/hils1.png"
+            ]
+          },
+          {
+            "time": "17:00",
+            "type": "관광",
+            "icon": "📍",
+            "title": "롯폰기 힐스 전망대",
+            "transport": "",
+            "duration": 0,
+            "memo": ".\n이 시간대면 낮, 노을, 야경을 한 번에 볼 수 있어서 좋다\n온라인으로 미리 예약하는 것이 좋다!!",
+            "photos": [
+              "images/hils2.png",
+              "images/hils3.png",
+              "images/hils4.png"
+            ]
+          },
+          {
+            "time": "19:00",
+            "type": "식사",
+            "icon": "🍜",
+            "title": "롯폰기 근처에서 저녁 먹기",
+            "transport": "",
+            "duration": 0,
+            "memo": ".\n음식은 그날 먹고싶은거 찾아서 가던가 아님 전날에 찾던가 이건 자유롭게~~",
+            "photos": []
+          },
+          {
+            "time": "20:30",
+            "type": "관광",
+            "icon": "📍",
+            "title": "케야키자카 도리",
+            "transport": "도보",
+            "duration": 0,
+            "memo": ".\n밥먹고 케야키자카 도리를 따라 걸으면 도쿄타워도 잘보이고 산책겸 돌아다닌다~~ 너무 예쁘다 \n일루미네이션",
+            "photos": [
+              "images/dori4.png",
+              "images/dori5.png",
+              "images/dori6.png"
+            ]
+          },
+          {
+            "time": "21:30",
+            "type": "이동",
+            "icon": "🚃",
+            "title": "롯폰기 -> 이케부쿠로(숙소)",
+            "transport": "전철",
+            "duration": "35",
+            "memo": ".\n1단계 : 롯폰기역 -> 신주쿠역\n         (도에이 오에도선 )\n2단계 : 신주쿠역 -> 이케부쿠로역\n          ( JR 야마노테선 )",
+            "photos": []
+          }
+        ]
       },
       {
         "day": 4,
-        "items": []
+        "items": [
+          {
+            "time": "09:00",
+            "type": "이동",
+            "icon": "🚃",
+            "title": "이케부쿠로 -> 나리타공항",
+            "transport": "전철",
+            "duration": "90",
+            "memo": ".\n1단계 : 이케부쿠로역 -> 닛포리역\n           ( JR 야마노테선 )\n2단계 : 닛포리역 -> 나리타공항\n           ( 게이세이 스카이라이너 )",
+            "photos": []
+          },
+          {
+            "time": "11:00",
+            "type": "공항",
+            "icon": "✈️",
+            "title": "나리타공항",
+            "transport": "",
+            "duration": 0,
+            "memo": ".\n체크인 및 수화물 위탁하고 \n보안검색 후 밥 먹어도 되고 검색하기전에 먹고 들어가도 되고\n그리고 면세점가서 쇼핑~ 일본 일정 여기서 마무우리~~",
+            "photos": []
+          }
+        ]
       }
     ]
   }
